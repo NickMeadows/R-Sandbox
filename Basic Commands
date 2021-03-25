@@ -1,0 +1,78 @@
+data <- read.csv()
+
+#Vectors are the basic data structure for R, Atomic Vectors contain the same type of information, Lists are vectors too, But their elements can be of any time.
+testVector <- c(1, 4, 5, 3)
+testList <- list(1, 2, "a", TRUE, c(FALSE, TRUE, FALSE), c(2, 3))
+
+if(FALSE){"This is a multi line comment, Invoked by hiding it inside a condition that never equates to true, So just sits inside the code
+  These comments should always be kept inside quotations"}
+  
+
+
+n = 54.3
+h = as.integer(4.3) #Will print 4
+j = 2
+k = 3 + 4*(j)
+l = 5 + 2i #i can be user as an imaginary number
+f = sqrt(16)
+bt = k > f
+t = as.character(45.23)
+
+
+print(n)
+print(h)
+print(k)
+print(l)
+print(f)
+print(bt)
+print(t)
+print(class(bt))
+print(typeof(testVector))
+print(length(testVector))
+print(attributes(testVector))
+print(testVector)
+print("List testing below! V")
+print(testList)
+
+if(FALSE){"Adding a dim attribute to an atomic vector allows it to behave like a multi-dimensional array, if we have an array with two dimensions however we
+  call it a matrix, and are very commonly used in mathematical machinery of statistics. Arrays are rarer but worth knowing about. matrix() & array()
+  respectively or assignment form of dim()"}
+
+print("Matrix below V")
+#example matrix below
+aa <- matrix(1:8, ncol = 4, nrow = 2)
+
+print(aa)
+
+print("Array below V")
+#or an array, Using a vector (c) to determine the dimensions
+bb <- array(1:24, c(2,4,3))
+
+print(bb)
+
+#Or we can modify the dim on existing data frames and vectors, as seen below
+
+cc <- 1:10
+print("First applied dimension to cc")
+print(cc)
+
+dim(cc) <- c(5,2)
+print("Second applied dimension to cc")
+
+print(cc)
+
+dim(cc) <- c(2,5)
+
+
+if(FALSE){"a data frame is the most common way of storing data in R, it is essentially a list of equally sized vectors, we use data.frame and it takes named 
+  vectors as input (x & y in this case)"}
+  
+df <- data.frame(x=1:3,y=c("a","b","c"))
+
+df <- cbind(df, data.frame(z=3:1)) #Combines a new column to existing data frame
+
+print(df)
+
+df <- rbind(df, data.frame(x = 4, y = "d", z = 0)) #Combines a new row into a data frame, Column count must match. plyr::rbind.fill() can be used to combine df that don't have the same columns
+
+print(df)
